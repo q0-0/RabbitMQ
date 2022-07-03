@@ -29,6 +29,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
+    //创建队列
     @Bean
     public Queue createq1(){
         return new Queue("fly");
