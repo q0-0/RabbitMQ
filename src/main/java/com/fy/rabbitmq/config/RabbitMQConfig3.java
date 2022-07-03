@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description: 交换器 - direct
  */
 
-//@Configuration
+@Configuration
 public class RabbitMQConfig3 {
 
     /**

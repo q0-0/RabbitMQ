@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
  * @Description:
  */
 @Component
-@RabbitListener(queues = "q_topic_02")
+@RabbitListener(queues = "q_fanout_02")
 public class MqListener {
 
     //消费消息
