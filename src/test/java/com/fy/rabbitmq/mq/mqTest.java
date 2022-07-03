@@ -38,4 +38,10 @@ public class mqTest {
     public void t1(){
         template.convertAndSend("ex-f","","测试001");
     }
+
+    //交换器 - direct 测试发送消息给交换器
+    @Test
+    public void t2(){
+        template.convertAndSend("ex-d","error","看看我在哪？");
+    }
 }
