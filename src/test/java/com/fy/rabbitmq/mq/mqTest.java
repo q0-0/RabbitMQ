@@ -1,8 +1,9 @@
-package com.fy.rabbitmq.listener;
+package com.fy.rabbitmq.mq;
 
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.stereotype.Component;
+import org.junit.jupiter.api.Test;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * 　　　┏┓　　　┏┓
@@ -26,14 +27,15 @@ import org.springframework.stereotype.Component;
  * @Author: fly
  * @Description:
  */
-@Component
-@RabbitListener(queues = "q_fanout_02")
-public class MqListener {
 
-    //消费消息
-    @RabbitHandler
-    public void t1(String msg) throws InterruptedException {
-        System.out.println("消费者1-接收消息：" + msg);
+@SpringBootTest
+public class mqTest {
+    @Autowired
+    RabbitTemplate template;
 
+    //交换器 - fanout 测试发送消息给交换器
+    @Test
+    public void t1(){
+        template.convertAndSend("ex-f","","测试001");
     }
 }
